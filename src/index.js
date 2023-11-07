@@ -15,15 +15,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-var can = require("socketcan");
-
-var channel = can.createRawChannel("can0", true);
-
-// Log any message
-channel.addListener("onMessage", function(msg) { console.log(msg); } );
-
-// Reply any message
-channel.addListener("onMessage", channel.send, channel);
-
-channel.start();
